@@ -1,0 +1,544 @@
+/* Estilos globales */
+body {
+    font-family: 'Press Start 2P', Arial, sans-serif; /* Fuente estilo videojuego retro */
+    margin: 0;
+    background-color: #1b263b; /* Azul oscuro para el fondo */
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* Fondo dinámico */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #1b263b, #34495e, #2c3e50); /* Azul oscuro y verdes oscuros */
+    background-size: 600% 600%;
+    animation: gradientAnimation 15s ease infinite;
+    z-index: -1;
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Sidebar */
+.sidebar {
+    height: 100%;
+    width: 240px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(18, 18, 18, 0.9); /* Fondo oscuro con un toque frío */
+    border-right: 2px solid #5da3a7; /* Cian suave como acento */
+    padding-top: 20px;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar button {
+    display: block;
+    background-color: #34495e; /* Gris azulado */
+    color: #5da3a7; /* Cian suave */
+    padding: 20px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    font-size: 18px;
+    border-bottom: 2px solid #5da3a7;
+    transition: all 0.3s ease;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.sidebar button:hover {
+    background-color: #2c3e50; /* Azul muy oscuro */
+    color: #ffffff;
+    box-shadow: 0 0 15px #5da3a7, 0 0 30px #5da3a7;
+}
+
+/* Content */
+.content {
+    margin-left: 240px;
+    padding: 50px;
+    width: calc(100% - 240px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+/* Caja de contenido */
+.box {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 900px;
+}
+
+/* Títulos */
+h1, h2 {
+    color: #5da3a7; /* Cian suave */
+    font-weight: 600;
+    font-family: 'Press Start 2P', cursive;
+    letter-spacing: 1px;
+}
+
+/* Efecto de Resplandor en Títulos */
+h1:hover, h2:hover {
+    text-shadow: 0 0 15px #1b263b, 0 0 30px #1b263b;
+}
+
+/* Botones de Acción */
+.btn-restart, .btn-login, .btn-save {
+    margin-top: 20px;
+    padding: 15px 30px;
+    background-color: #2c3e50; /* Azul oscuro */
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.btn-restart:hover, .btn-login:hover, .btn-save:hover {
+    background-color: #5da3a7; /* Cian suave */
+    box-shadow: 0 0 10px #5da3a7, 0 0 20px #5da3a7;
+}
+
+/* Estilo para el Tres en Raya */
+.tic-tac-toe-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    margin: 0 auto;
+    width: 300px;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    background-color: #34495e; /* Gris azulado */
+    border: 3px solid #5da3a7; /* Cian suave */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    color: #5da3a7; /* Cian suave */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cell:hover {
+    background-color: #1b263b; /* Azul oscuro */
+    color: white;
+}
+
+/* Estilo del Formulario del Modo Editor */
+.dev-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dev-form input {
+    padding: 10px;
+    width: 250px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #333;
+    color: #fff;
+}
+
+.dev-form input:focus {
+    border-color: #5da3a7; /* Cian suave */
+    box-shadow: 0 0 10px #5da3a7;
+}
+
+/* Secciones del Modo Editor */
+.dev-section {
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.dev-section h2 {
+    font-size: 1.5em;
+    color: #5da3a7; /* Cian suave */
+}
+
+/* Botón Cerrar Sesión */
+.btn-logout {
+    padding: 10px 20px;
+    background-color: #34495e; /* Gris azulado */
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.btn-logout:hover {
+    background-color: #5da3a7; /* Cian suave */
+}
+
+/* Estilo de la máquina tragamonedas */
+.slot-machine-cabinet {
+    width: 400px;
+    margin: 50px auto;
+    background: linear-gradient(145deg, #333, #1a1a1a);
+    border: 8px solid #5da3a7; /* Cian suave */
+    border-radius: 20px;
+    padding: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), inset 0 0 15px rgba(255, 223, 0, 0.6);
+    position: relative;
+    overflow: hidden;
+}
+
+.reels-container {
+    display: flex;
+    justify-content: space-around;
+    background-color: #000;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.reel {
+    width: 80px;
+    height: 150px;
+    overflow: hidden;
+    background: linear-gradient(145deg, #555, #222);
+    border: 3px solid #5da3a7; /* Cian suave */
+    border-radius: 15px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.symbol {
+    font-size: 50px;
+    text-align: center;
+    margin: 20px 0;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(0, 0, 255, 0.6);
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn-spin {
+    width: 150px;
+    padding: 15px;
+    background-color: #5da3a7; /* Cian suave */
+    border: 3px solid #000;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(255, 223, 0, 0.7), 0 0 30px rgba(255, 255, 255, 0.4) inset;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-spin:hover {
+    transform: scale(1.1);
+    background-color: #5da3a7; /* Cian suave */
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.9), inset 0 0 20px rgba(255, 223, 0, 0.8);
+}
+
+.result-message {
+    font-size: 22px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    margin-top: 10px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+#resultMessage {
+    font-size: 1.5em;
+    margin-top: 10px;
+}
+
+
+.box {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.schedule-table th, .schedule-table td {
+    border: 1px solid #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+.turnos-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.turno {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.symbol {
+    font-size: 50px;
+    text-align: center;
+}
+
+.slot-machine {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.result-message {
+    font-size: 24px;
+    text-align: center;
+}
+
+.dev-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.dev-form .form-group {
+    margin-bottom: 15px;
+}
+
+.dev-section {
+    margin-bottom: 20px;
+}
+
+#announcementsContent p {
+    font-size: 1.2em;
+    color: #ffffff;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.btn-login, .btn-save, .btn-spin, .btn-logout {
+    background-color: #ff5722;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-login:hover, .btn-save:hover, .btn-spin:hover, .btn-logout:hover {
+    background-color: #e64a19;
+}
+.tabcontent {
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    margin-left: 0; /* Elimina el margen a la izquierda */
+    padding: 20px;
+    height: 100vh; /* Asegura que ocupe el 100% de la pantalla */
+}
+
+.box {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    max-width: 900px; /* Define un ancho máximo para el contenido */
+    width: 100%; /* El contenido se adaptará al ancho disponible */
+}
+/* Estilos básicos */
+.reel {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    font-size: 60px;
+    border: 1px solid #000;
+    text-align: center;
+    line-height: 100px;
+}
+
+/* Animación de giro */
+.spin {
+    animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+    0% { transform: rotateX(0deg); }
+    100% { transform: rotateX(360deg); }
+}
+
+        #winVideo {
+            #winVideo {
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 100vw !important;
+                height: 100vh !important;
+                z-index: 9999 !important; /* Asegúrate de que esté encima de todo */
+                margin: 0 !important; /* Elimina cualquier margen */
+                padding: 0 !important; /* Elimina cualquier padding */
+            }
+            
+        }
+        #winVideo {
+            #winVideo video {
+                width: 100% !important;
+                height: 100% !important;
+                object-fit: cover !important; /* Asegura que el video cubra todo */
+                position: absolute !important;
+                top: 0;
+                left: 0;
+            }
+            
+        }
+.box {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+body.dark-mode {
+    background-color: #121212; /* Color de fondo oscuro */
+    color: #ffffff; /* Color de texto claro */
+}
+
+body.dark-mode .box {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Ajusta otros elementos según sea necesario */
+#backgroundVideo {
+    position: fixed; /* Fija el video en la pantalla */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ancho del video */
+    height: 100%; /* Alto del video */
+    object-fit: cover; /* Mantiene la proporción del video y lo cubre */
+    z-index: -1; /* Asegura que el video esté detrás de otros elementos */
+    opacity: 0.7; /* Puedes ajustar la opacidad del video si lo deseas */
+}
+#winVideo.showing + .sidebar {
+    display: none !important; /* Oculta el sidebar cuando el video esté visible */
+}
+
+#exitFullscreenButton {
+    background-color: #ff5722;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#exitFullscreenButton:hover {
+    background-color: #e64a19;
+}
+#fullscreenButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff; /* Color de fondo azul */
+    color: white; /* Color del texto */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#fullscreenButton:hover {
+    background-color: #0056b3; /* Color de fondo cuando el mouse pasa por encima */
+    transform: scale(1.05); /* Efecto de aumento cuando se pasa el mouse */
+}
+
+#fullscreenButton:focus {
+    outline: none; /* Eliminar el borde azul de enfoque en algunos navegadores */
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5); /* Agregar sombra cuando está en foco */
+}
+
+#fullscreenButton:active {
+    background-color: #004085; /* Color de fondo cuando se presiona el botón */
+    transform: scale(1); /* Devolver el tamaño original cuando se hace clic */
+}
+
+
